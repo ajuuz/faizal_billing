@@ -1,6 +1,6 @@
 "use client";
 
-import jsonProducts from "../../data/products.json";
+import jsonProducts from "../data/products.json";
 
 import Products from "@/components/Products";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

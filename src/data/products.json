@@ -1,0 +1,26 @@
+[
+  {
+    "name": "product 1",
+    "sku": "SUB-001",
+    "price": 500,
+    "category": "oil",
+    "stock": "50",
+    "id": "8feb64e2-8884-408e-83d3-da52469afff0"
+  },
+  {
+    "name": "sdf",
+    "sku": "fdsjlk",
+    "price": 234,
+    "category": "lkfdjs",
+    "stock": "fjlkds",
+    "id": "011439fd-6d67-4764-bb5e-cf83e93928b0"
+  },
+  {
+    "name": "fds1",
+    "sku": "jkle",
+    "price": 24324,
+    "category": "dfklj",
+    "stock": "fsjdlk",
+    "id": "8a905c26-0f0a-4845-a1e7-c181cf368a3f"
+  }
+]
