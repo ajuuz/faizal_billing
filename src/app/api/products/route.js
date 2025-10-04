@@ -14,7 +14,7 @@ export async function POST(req) {
     products.push(newProduct);
     await fs.writeFile(productFilePath, JSON.stringify(products, null, 2), "utf-8");
 
-    return new Response(JSON.stringify(newProduct), { status: 201 });
+    return new Response(JSON.stringify(products), { status: 201 });
   } catch (error) {
     console.log(error);
     return new Response(JSON.stringify({ error: "Failed to add product" }), { status: 500 });
