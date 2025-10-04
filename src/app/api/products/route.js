@@ -1,8 +1,7 @@
 import { promises as fs } from "fs";
-
 import path from "path";
 
-const productFilePath = '../../../data/products.json';
+const productFilePath = path.join(process.cwd(), "src", "data", "products.json");
 
 // ------------------- CREATE (POST) -------------------
 export async function POST(req) {
