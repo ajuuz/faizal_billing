@@ -1,0 +1,10 @@
+[
+  {
+    "name": "product 1",
+    "sku": "SUB-001",
+    "price": 500,
+    "category": "oil",
+    "stock": "50",
+    "id": "8feb64e2-8884-408e-83d3-da52469afff0"
+  }
+]
