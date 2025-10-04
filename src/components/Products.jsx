@@ -118,7 +118,7 @@ const Products = ({ products, setProducts }) => {
       };
       try {
         const products = await addProduct(newProduct);
-        console.log(products);
+        console.log("this is the add product",products);
         setProducts(products);
       } catch (err) {
         console.log(err, "err in adding product");
