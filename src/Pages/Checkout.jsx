@@ -83,9 +83,9 @@ const InvoicePDF = ({ selectedProducts, subtotal, tax, total }) => (
             <Text style={[pdfStyles.tableCellText, pdfStyles.tableColItem]}>{product.name}</Text>
             <Text style={[pdfStyles.tableCellText, pdfStyles.tableColSku]}>{product.sku}</Text>
             <Text style={[pdfStyles.tableCellText, pdfStyles.tableColQty]}>{product.quantity}</Text>
-            <Text style={[pdfStyles.tableCellText, pdfStyles.tableColPrice]}>Rs. {product.price.toFixed(2)}</Text>
+            <Text style={[pdfStyles.tableCellText, pdfStyles.tableColPrice]}>Rs. {Number(product.price).toFixed(2)}</Text>
             <Text style={[pdfStyles.tableCellText, pdfStyles.tableColAmount]}>
-              Rs. {(product.price * product.quantity).toFixed(2)}
+              Rs. {(Number(product.price) * Number(product.quantity)).toFixed(2)}
             </Text>
           </View>
         ))}
@@ -175,9 +175,15 @@ const Checkout = () => {
     )
   }
 
-  const removeProduct = (id) => setSelectedProducts(selectedProducts.filter((p) => p.id !== id))
+  const removeProduct = (id) => {
+    setSelectedProducts((prev) =>
+      prev
+        .filter((p) => p && p.id !== id)
+        .map((p) => ({ ...p, price: Number(p.price), quantity: Number(p.quantity) }))
+    )
+  }
 
-  const subtotal = selectedProducts.reduce((sum, p) => sum + p.price * p.quantity, 0)
+  const subtotal = selectedProducts.reduce((sum, p) => sum + Number(p.price) * Number(p.quantity), 0)
   const tax = subtotal * TAX_RATE
   const total = subtotal + tax
 
@@ -277,9 +283,9 @@ const Checkout = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="py-4 text-right text-foreground">Rs. {product.price.toFixed(2)}</td>
+                      <td className="py-4 text-right text-foreground">Rs. {Number(product.price).toFixed(2)}</td>
                       <td className="py-4 text-right text-foreground font-semibold">
-                        Rs. {(product.price * product.quantity).toFixed(2)}
+                        Rs. {(Number(product.price) * Number(product.quantity)).toFixed(2)}
                       </td>
                       <td className="py-4">
                         <button
